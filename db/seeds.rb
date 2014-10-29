@@ -28,7 +28,7 @@ restaurants = Restaurant.create([
     {
         name: 'The Vortex Bar and Grill',
         address: '878 Peachtree St NE, Atlanta, GA 30309',
-        phone: '.404.875.1667',
+        phone: '404.875.1667',
         website: 'http://www.thevortexbarandgrill.com/'
     }
 ])
