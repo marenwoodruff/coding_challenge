@@ -29,6 +29,7 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+# To prepare rails app for heroku deploy
 gem 'rails_12factor'
 
 group :doc do
