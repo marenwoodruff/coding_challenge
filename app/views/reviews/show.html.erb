@@ -3,6 +3,9 @@
 <p>
   <strong>Rating:</strong>
   <%= @review.rating %>
+  <br>
+  <strong>Comment:</strong>
+  <%= @review.comment %>
 </p>
 
 <%= link_to 'Edit', edit_review_path(@review), class: "btn btn-link" %> |
