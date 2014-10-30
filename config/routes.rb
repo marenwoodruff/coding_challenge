@@ -1,9 +1,10 @@
 Springbotapp::Application.routes.draw do
   resources :users
 
-  resources :reviews
+  resources :restaurants do
+    resources :reviews, except: [:show, :index]
+  end
 
-  resources :restaurants
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
