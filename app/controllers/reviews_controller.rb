@@ -29,20 +29,6 @@ class ReviewsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /reviews/1
-  # PATCH/PUT /reviews/1.json
-  def update
-    respond_to do |format|
-      if @review.update(review_params)
-        format.html { redirect_to restaurants_path, notice: 'Review was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @review.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   # DELETE /reviews/1
   # DELETE /reviews/1.json
   def destroy
