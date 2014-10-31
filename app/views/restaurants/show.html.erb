@@ -1,11 +1,15 @@
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-6">
     <p id="notice"><%= notice %></p>
 
     <h2>
       <%= @restaurant.name %>
     </h2>
 
+    <div class="star-rating" data-score= <%= @avg_rating %> ></div> 
+    <p><%= "#{@reviews.length} reviews" %></p>
+
+    <br>
     <p>
       <strong>Address:</strong>
       <%= @restaurant.address %>
@@ -22,16 +26,25 @@
     </p>
   </div>
 
-<h1><%= link_to "Write A Review", new_restaurant_review_path(@restaurant), class: "btn btn-link" %> </h1>
+  <br>
+  <h1><%= link_to "Write A Review", new_restaurant_review_path(@restaurant), class: "btn btn-link" %> </h1>
 
-  <div class="col-md-8">
+  <div class="col-md-6"> 
     <% if @reviews.blank? %>
       <h3>No reviews yet. Be the first to write one!</h3>
     <% else %>
-      <% @reviews.each do |review| %>
-        <div class="star-rating" data-score= <%= review.rating %> ></div>
-        <p><%= review.comment %></p>
-      <% end %>
+      <table class="table">
+        <tbody>
+          <% @reviews.each do |review| %>
+            <tr>
+              <td>
+                <div class="star-rating" data-score= <%= review.rating %> ></div>
+                <p><%= h(review.comment).gsub(/\n/, '<br/>').html_safe %></p>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
     <% end %>
   </div>
 
