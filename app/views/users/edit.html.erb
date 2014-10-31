@@ -2,5 +2,19 @@
 
 <%= render 'form' %>
 
+<% unless @reviews == nil %>
+    <div>
+        <% @reviews.each do |r| %>
+            <%= Restaurant.find_by(id: r.review_id).name %> 
+            <%= r.review %>
+            <%= button_to "Delete", r, method: :delete, class: "button tiny alert"%>
+            <br>
+        <% end %> 
+        <br>
+        <br>
+    </div> 
+<% end %>
+
+
 <%= link_to 'Show', @user, class: "btn btn-link" %> |
 <%= link_to 'Back', users_path, class: "btn btn-link" %>

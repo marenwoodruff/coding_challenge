@@ -29,20 +29,31 @@
   <br>
   <h1><%= link_to "Write A Review", new_restaurant_review_path(@restaurant), class: "btn btn-link" %> </h1>
 
-  <div class="col-md-4"> 
+  <div class="col-md-9"> 
     <% if @reviews.blank? %>
       <h3>No reviews yet. Be the first to write one!</h3>
     <% else %>
       <table class="table">
+<!--         <thead>
+          <tr>
+            <th class="col-md-3"></th>
+            <th class="col-md-9"></th>
+          </tr>
+        </thead> -->
         <tbody>
           <% @reviews.each do |review| %>
             <tr>
+              <td>
+                <h4>
+                  <%#= review.users.each do |user| %> <%#= user.first_name %> <%# end %>
+                </h4>
+              </td>
               <td>
                 <div class="star-rating" data-score= <%= review.rating %> ></div>
                 <p><%= h(review.comment).gsub(/\n/, '<br/>').html_safe %></p>
               </td>
             </tr>
-          <% end %>
+        <% end %>
         </tbody>
       </table>
     <% end %>
