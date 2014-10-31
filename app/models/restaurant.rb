@@ -6,9 +6,16 @@ class Restaurant < ActiveRecord::Base
     validates :address, presence: true, length: { maximum: 300 }
     validates :phone, presence: true, length: {is: 12}
 
-    def suggest
+    def suggestion
         choice_array = Restaurant.all
-        choice_array = choice_array.shuffle.sort_by { |x| [x.updated_at, x.reviews] }
-        choice_array = choice_array.first
+        suggest = choice_array.sort_by { |x| [x.updated_at, x.reviews] }.shuffle
+        if suggest[0].name == Restaurant.last.updated_at
+            suggest[0].pop
+            suggest = choice_array.sort_by { |x| [x.updated_at, x.reviews] }.shuffle
+        else 
+            suggest = suggest[0].name
+        end    
     end
 end
+
+
