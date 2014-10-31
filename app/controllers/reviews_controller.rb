@@ -46,11 +46,9 @@ class ReviewsController < ApplicationController
   # DELETE /reviews/1
   # DELETE /reviews/1.json
   def destroy
+    @review = Review.find(params[:id])
     @review.destroy
-    respond_to do |format|
-      format.html { redirect_to reviews_url }
-      format.json { head :no_content }
-    end
+    redirect_to @restaurant, notice: 'Review was successfully deleted.' 
   end
 
   private

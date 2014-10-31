@@ -28,6 +28,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/1/edit
   def edit
     @restaurant = Restaurant.find(params[:id])
+    @reviews = Restaurant.review
   end
 
   # POST /restaurants
