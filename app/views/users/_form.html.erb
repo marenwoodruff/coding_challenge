@@ -12,13 +12,24 @@
   <% end %>
 
   <div class="fillIt">
-    <div class="field">
-      <%= f.label :username %><br>
+    <div class="form-group">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name, autofocus: true, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :username %>
       <%= f.text_field :username, class: "form-control" %>
     </div>
+
     <div class="actions">
       <%= f.submit class: "btn btn-primary"%>
     </div>
   </div>
-  
+
 <% end %>
