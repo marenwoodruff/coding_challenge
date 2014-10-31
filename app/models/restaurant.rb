@@ -8,7 +8,7 @@ class Restaurant < ActiveRecord::Base
 
     def suggest
         choice_array = Restaurant.all
-        choice_array.sort_by(&:updated_at)
-
+        choice_array = choice_array.shuffle.sort_by { |x| [x.updated_at, x.reviews] }
+        choice_array = choice_array.first
     end
 end

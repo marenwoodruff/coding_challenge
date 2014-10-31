@@ -2,4 +2,6 @@
 <br>
 <h3>This is your suggestion for today's lunch:</h3>
 
-<%#= choice_array %>
+<% @restaurants.each do |r| %>
+    <h4><%= r.suggest %></h4>
+<% end %>
