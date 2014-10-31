@@ -17,7 +17,6 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.restaurant_id = @restaurant.id
-    @review.user = @user.id
 
     respond_to do |format|
       if @review.save
@@ -66,6 +65,6 @@ class ReviewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
-      params.require(:review).permit(:rating, :comment, :user_id, :restaurant_id)
+      params.require(:review).permit(:rating, :comment, :restaurant_id, :first_name, :last_name)
     end
 end
